@@ -1,6 +1,8 @@
-import EventCard from "../components/EventCard"; // Go UP one folder, then into components
+import EventCard from "../components/EventCard";
+import { events } from "../data/events";
 
 function HomePage() {
+  
   return (
     <div className="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-10">
       {/* Title and Category Filters */}
@@ -25,11 +27,17 @@ function HomePage() {
       </div>
 
       {/* Event Grid */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
-        <EventCard />
-        <EventCard />
-        <EventCard />
-        <EventCard />
+      <div className="grid sm:grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
+        {events.map((event) => (
+          <EventCard
+            key={event.id}
+            id={event.id}
+            title={event.title}
+            date={event.date}
+            location={event.location}
+            image={event.image}
+          />
+        ))}
       </div>
     </div>
   );
