@@ -1,7 +1,15 @@
 import { LuX } from "react-icons/lu";
+import { useNavigate } from "react-router-dom";
 
 function CheckoutModal({ isOpen, onClose, total }) {
   if (!isOpen) return null;
+
+  const navigate = useNavigate();
+  const handlePayment = () => {
+    //handle payment 
+    onClose();
+    navigate('/PaymentSuccessPage');
+  }
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
@@ -64,7 +72,7 @@ function CheckoutModal({ isOpen, onClose, total }) {
             <span className="text-gray-500">Total</span>
             <span className="text-xl font-bold">${total?.toFixed(2)}</span>
           </div>
-          <button className="w-full bg-[#0066FF] hover:bg-blue-600 text-white font-semibold py-4 rounded-xl transition shadow-lg shadow-blue-500/25">
+          <button onClick={handlePayment} className="w-full bg-[#0066FF] hover:bg-blue-600 text-white font-semibold py-4 rounded-xl transition shadow-lg shadow-blue-500/25">
             Pay & Get Ticket
           </button>
         </div>
