@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import EventCard from "../components/EventCard";
 import { events } from "../data/events";
 
@@ -11,18 +12,18 @@ function HomePage() {
           Discover Events
         </h1>
         <div className="hidden md:flex items-center gap-2">
-          <button className="px-3 py-2 rounded-xl dark:bg-white/10 text-[13px] bg-white/5">
+          <Link to="/category/Tech" className="px-3 py-2 rounded-xl dark:bg-white/10 text-[13px] bg-white/5">
             Tech
-          </button>
-          <button className="px-3 py-2 rounded-xl dark:bg-white/10 text-[13px] bg-white/5">
+          </Link>
+          <Link to="/category/Food & Drink" className="px-3 py-2 rounded-xl dark:bg-white/10 text-[13px] bg-white/5">
             Food & Drink
-          </button>
-          <button className="px-3 py-2 rounded-xl dark:bg-white/10 text-[13px] bg-white/5">
+          </Link>
+          <Link to="/category/Arts & Culture" className="px-3 py-2 rounded-xl dark:bg-white/10 text-[13px] bg-white/5">
             Arts & Culture
-          </button>
-          <button className="px-3 py-2 rounded-xl dark:bg-white/10 text-[13px] bg-white/5">
+          </Link>
+          <Link to="/category/Music" className="px-3 py-2 rounded-xl dark:bg-white/10 text-[13px] bg-white/5">
             Music
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -31,6 +32,7 @@ function HomePage() {
         {events.map((event) => (
           <EventCard
             key={event.id}
+            
             id={event.id}
             title={event.title}
             date={event.date}
