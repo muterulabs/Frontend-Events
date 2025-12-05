@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .glass {
+    @apply backdrop-blur-md bg-white/70 border-b border-black/5 dark:bg-black/40 dark:border-white/10;
+  }
+}
